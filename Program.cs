@@ -56,7 +56,7 @@ switch(openBox)
     break;
 }
 
-Console.WriteLine("As you make your way into the house you notice that the house has a strong smell of kale and juice cleanses and you think to yourself this definitley is the place!\n\nYou continue forward you notice a vent in the ceiling and you can hear people arguing through it. Do you want to listen in or keep exploring yes or no?\n\n");
+Console.WriteLine("As you make your way into the house you notice that the house has a strong smell of kale and juice cleanses and you think to yourself this definitley is the place!\n\nYou continue forward you notice a vent in the ceiling and you can hear people arguing through it. Do you want to listen in or keep exploring type yes or no?\n\n");
 
 string listenTo = Console.ReadLine();
 
@@ -77,6 +77,7 @@ Console.WriteLine("As you turn the corner you see the son Corey sitting on the c
 Console.WriteLine(player.Name + " You have encountered Corey and he is coming for blood! What will you do?\n\n");
 
     
+    // giving MiniBoss1 class corey his starting values
     MiniBoss1 corey = new MiniBoss1(30, 1, "Corey");
     Console.WriteLine(corey);
     Console.WriteLine(player.Name + ", HP: " + player.healthPoints);
@@ -126,13 +127,55 @@ Console.WriteLine(player.Name + " You have encountered Corey and he is coming fo
     }
     else
     {
-        player.healthPoints = player.healthPoints - 200;
-        Console.WriteLine("You chose not to make an attack and Corey got a powerfull blow on you and you died!\n");
+        player.healthPoints = player.healthPoints - 25;
+        Console.WriteLine("You chose not to make an attack and Corey got a powerfull blow on you be carful too many of those and you could die. Choose again!\n");
     }
 }
-Console.WriteLine("Congratulations you killed " + corey.miniBoss1Name + "!");
+// Giving the game an exit if you perish in battle
+if(player.healthPoints <= 0)
+{
+    Console.WriteLine("You Are Dead! Try again?");
+    Environment.Exit(0);
+}
+
+Console.WriteLine("Congratulations you killed " + corey.miniBoss1Name + "! As you collect yourself from that intense battle you are in disbelief thinking to yourself did that really just happen! You look around and notice a safe that says incase of emergency open immediately! What will you do?\n");
+
+Console.WriteLine("If you choose to open the safe you will pick a number between 1-5 to guess the combination to get in, 4 of the numbers will be helpful but 1 of them can be detrimental to your life!\n");
+
+Console.WriteLine("Choose a number between 1-5 or type no to skip past no risk or reward!\n");
+
+string crackSafe = Console.ReadLine();
+
+switch(crackSafe)
+{
+    case "1" :
+    Console.WriteLine("\nYou get electrocuted and lose 20 health points!\n");
+    player.healthPoints = player.healthPoints - 20;
+    break;
+    case "2" :
+    Console.WriteLine("\nYou find an adrenaline shot and gain 40 health points!\n");
+    player.healthPoints = player.healthPoints + 40;
+    break;
+    case "3" :
+    Console.WriteLine("\nYou find a green and red herb and you combine them to gain 20 health points!\n");
+    player.healthPoints = player.healthPoints + 20;
+    break;
+    case "4" :
+    Console.WriteLine("\nYou find a riot shield and gain 30 health points for the protection!\n");
+    player.healthPoints = player.healthPoints + 30;
+    break;
+    case "5" :
+    Console.WriteLine("\nYou find... sadly nothing except the courage to cary on gain 15 health points!\n");
+    player.healthPoints = player.healthPoints + 15;
+    break;
+    case "no" :
+    Console.WriteLine("\nYou decide not to try the safe and neither gain nor lose health points and continue on!\n");
+    break;
+}
 
 
+
+// giving MiniBoss2 class becky her starting values
 MiniBoss2 becky = new MiniBoss2(65, 2, "Becky");
     Console.WriteLine(becky);
     Console.WriteLine(player.Name + ", HP: " + player.healthPoints);
@@ -182,13 +225,20 @@ MiniBoss2 becky = new MiniBoss2(65, 2, "Becky");
     }
     else
     {
-        player.healthPoints = player.healthPoints - 200;
-        Console.WriteLine("You chose not to make an attack and Corey got a powerfull blow on you and you died!\n");
+        player.healthPoints = player.healthPoints - 25;
+        Console.WriteLine("You chose not to make an attack and Becky got a powerfull blow on you be carful too many of those and you could die. Choose again!\n");
     }
 }
-Console.WriteLine("Congratulations you killed " + becky.miniBoss2Name + "!");
+if(player.healthPoints <= 0)
+{
+    Console.WriteLine("You Are Dead! Try again?");
+    Environment.Exit(0);
+}
+
+Console.WriteLine("Congratulations you killed " + becky.miniBoss2Name + "!\n");
 
 
+// giving MiniBoss3 class kyle his starting values
 MiniBoss3 kyle = new MiniBoss3(100, 3, "Kyle");
     Console.WriteLine(kyle);
     Console.WriteLine(player.Name + ", HP: " + player.healthPoints);
@@ -238,13 +288,20 @@ MiniBoss3 kyle = new MiniBoss3(100, 3, "Kyle");
     }
     else
     {
-        player.healthPoints = player.healthPoints - 200;
-        Console.WriteLine("You chose not to make an attack and Corey got a powerfull blow on you and you died!\n");
+        player.healthPoints = player.healthPoints - 25;
+        Console.WriteLine("You chose not to make an attack and Kyle got a powerfull blow on you be carful too many of those and you could die. Choose again!\n");
     }
 }
-Console.WriteLine("Congratulations you killed " + kyle.miniBoss3Name + "!");
+if(player.healthPoints <= 0)
+{
+    Console.WriteLine("You Are Dead! Try again?");
+    Environment.Exit(0);
+}
+
+Console.WriteLine("Congratulations you killed " + kyle.miniBoss3Name + "!\n");
 
 
+// giving MainBoss class karen her starting values
 MainBoss karen = new MainBoss(250, 4, "Karen");
     Console.WriteLine(karen);
     Console.WriteLine(player.Name + ", HP: " + player.healthPoints);
@@ -294,11 +351,17 @@ MainBoss karen = new MainBoss(250, 4, "Karen");
     }
     else
     {
-        player.healthPoints = player.healthPoints - 200;
-        Console.WriteLine("You chose not to make an attack and Corey got a powerfull blow on you and you died!\n");
+        player.healthPoints = player.healthPoints - 25;
+        Console.WriteLine("You chose not to make an attack and Corey got a powerfull blow on you be carful too many of those and you could die. Choose again!\n");
     }
 }
-Console.WriteLine("Congratulations you killed " + karen.mainBossName + "!");
+if(player.healthPoints <= 0)
+{
+    Console.WriteLine("You Are Dead! Try again?");
+    Environment.Exit(0);
+}
+
+Console.WriteLine("Congratulations you killed " + karen.mainBossName + "!\n");
 
 
 
@@ -311,7 +374,9 @@ namespace NewGame
         public double healthPoints { get; set; }
         public int damage { get; set; }
         public string Name { get; set; }
+        
         public override string ToString() => $"{Name}, Damage: {damage}, HP: {healthPoints}";
+
 
         public Player()
         {
@@ -319,6 +384,7 @@ namespace NewGame
             damage = 2;
             Name = Name;
         }
+        
     }
 
     public class MainBoss
